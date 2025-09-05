@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <?php
+    echo "Olá Yuri! Bem vindo ao PHP";
+    $nome = "Yuri";
+    $idade = "21";
+    $altura = "1,70";
+
+    define ("Pi", 3,14);
+    const PI = 3,14;
+
+    echo "Pi";
+    echo PI;
+
+    $nome = readline ("Fale seu nome");
+
+    echo "Olá" . $nome . "!";
+
+    $a = true;
+    $b = false;
+
+    var_dump ($a && $b);
+
+    $a = true;
+    $b = false;
+
+    var_dump ($a || $b);
+
+    $a = true;
+    $b = false;
+
+    var_dump (!$a);
+    var_dump (!$b);
+
+    ?>
+
+    <h1> Olá Yuri! Bem vindo a aula de linguagem de programação </h1>
+    <h2> Olá Yuri! Bem vindo a aula de linguagem de programação </h2>
+    <h3> Olá Yuri! Bem vindo a aula de linguagem de programação </h3>
+    <h4> Olá Yuri! Bem vindo a aula de linguagem de programação </h4>
+    <h5> Olá Yuri! Bem vindo a aula de linguagem de programação </h5>
+
+    <p> Olá Yuri! Bem vindo a aula de linguagem de programação </p>
+
+
+</body>
+</html>
