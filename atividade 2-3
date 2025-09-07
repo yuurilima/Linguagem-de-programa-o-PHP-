@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dias da Semana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        input {
+            padding: 5px;
+            margin: 5px;
+        }
+
+        .erro {
+            color: red;
+            font-weight: bold;
+        }
+
+        .dia {
+            color: darkblue;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <?php
+
+    $diaSemana = "";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $numero = $_POST["numero"];
+        switch ($numero) {
+            case 1:
+                $diaSemana = "Segunda-feira";
+                break;
+            case 2:
+                $diaSemana = "Terça-feira";
+                break;
+            case 3:
+                $diaSemana = "Quarta-feira";
+                break;
+            case 4:
+                $diaSemana = "Quinta-feira";
+                break;
+            case 5:
+                $diaSemana = "Sexta-feira";
+                break;
+            case 6:
+                $diaSemana = "Sábado";
+                break;
+            case 7:
+                $diaSemana = "Domingo";
+                break;
+            default:
+                $diaSemana = "<span class='erro'>Número inválido!</span>";
+        }
+    }
+    ?>
+
+    <h1>Descubra o Dia da Semana</h1>
+    <form method="post">
+        <input type="number" name="numero" placeholder="Digite de 1 a 7">
+        <button type="submit">Verificar</button>
+    </form>
+    <?php if ($diaSemana)
+        echo "<p class='dia'>$diaSemana</p>"; ?>
+
+</body>
+
+</html>
