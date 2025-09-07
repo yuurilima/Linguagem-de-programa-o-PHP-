@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Números Pares</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        input {
+            padding: 5px;
+            margin: 5px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 5px;
+            margin: 2px;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        li:nth-child(even) {
+            background: #cce5ff;
+        }
+
+        .erro {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <?php
+    $saida = "";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $max = $_POST["max"];
+        if ($max > 1) {
+            $saida .= "<ul>";
+            for ($i = 2; $i <= $max; $i += 2) {
+                $saida .= "<li>$i</li>";
+            }
+            $saida .= "</ul>";
+        } else {
+            $saida = "<p class='erro'>Digite um número maior que 1!</p>";
+        }
+    }
+    ?>
+
+    <h1>Lista de Números Pares</h1>
+    <form method="post">
+        <input type="number" name="max" placeholder="Digite um número maior que 1">
+        <button type="submit">Gerar</button>
+    </form>
+    <?php echo $saida; ?>
+
+</body>
+
+</html>
