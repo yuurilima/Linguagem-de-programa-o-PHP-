@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Verificação de Idade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        input {
+            padding: 5px;
+            margin: 5px;
+        }
+
+        .crianca {
+            color: blue;
+            font-weight: bold;
+        }
+
+        .adolescente {
+            color: green;
+            font-weight: bold;
+        }
+
+        .adulto {
+            color: orange;
+            font-weight: bold;
+        }
+
+        .idoso {
+            color: purple;
+            font-weight: bold;
+        }
+
+        .erro {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <?php
+    $resultado = "";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $idade = $_POST["idade"];
+        if ($idade !== "") {
+            if ($idade >= 0 && $idade <= 12) {
+                $resultado = "<p class='crianca'>Criança</p>";
+            } elseif ($idade >= 13 && $idade <= 17) {
+                $resultado = "<p class='adolescente'>Adolescente</p>";
+            } elseif ($idade >= 18 && $idade <= 59) {
+                $resultado = "<p class='adulto'>Adulto</p>";
+            } elseif ($idade >= 60) {
+                $resultado = "<p class='idoso'>Idoso</p>";
+            } else {
+                $resultado = "<p class='erro'>Idade inválida!</p>";
+            }
+        }
+    }
+    ?>
+
+    <h1>Verificação de Idade</h1>
+    <form method="post">
+        <input type="number" name="idade" placeholder="Digite sua idade">
+        <button type="submit">Verificar</button>
+    </form>
+    <?php echo $resultado; ?>
+
+</body>
+
+</html>
